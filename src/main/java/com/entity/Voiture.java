@@ -1,6 +1,7 @@
 package com.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.awt.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Data
@@ -17,9 +19,8 @@ public class Voiture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long IdVoiture;
-    private String MatriculeVoitue;
+    private String MatriculeVoiture;
     private String MarqueVoiture;
-    private String CouleurVoiture;
     private String imageVoiture;
     private int Caution;
     private int livraison;
@@ -34,4 +35,19 @@ public class Voiture {
     @JsonBackReference(value="marque")
     @JoinColumn(name = "marque")
     private Marque marque;
+    @ManyToOne()
+    @JsonBackReference(value="couleur")
+    @JoinColumn(name = "couleur")
+    private Couleur couleur;
+    @ManyToOne()
+    @JsonBackReference(value="typeVoiture")
+    @JoinColumn(name = "typeVoiture")
+    private TypeVoiture typeVoiture;
+    @ManyToOne()
+    @JsonBackReference(value="reservation")
+    @JoinColumn(name = "reservation")
+    private Reservation reservation;
+
+
+
 }

@@ -7,9 +7,7 @@ import java.util.List;
 
 @Service
 public class MarqueService  {
-
     private MarqueRepository marqueRepository;
-
     public Marque saveMarque(Marque marque) {
         return this.marqueRepository.save(marque);
     }

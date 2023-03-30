@@ -4,7 +4,6 @@ import com.entity.Marque;
 import com.service.MarqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class MarqueController {
 
     }
 
-    @RequestMapping(value="/getAllMarques",method= RequestMethod.GET,headers="accept=Application/json")
+    @RequestMapping(value="/getAllMarque",method= RequestMethod.GET,headers="accept=Application/json")
     public List<Marque> getAll() {
         List<Marque> marques=new ArrayList<>();
         try {
